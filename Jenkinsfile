@@ -1,5 +1,6 @@
 pipeline {
-  
+  agent {
+  }
   stages {
     stage('Create Packer AMI') {
         steps {
