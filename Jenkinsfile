@@ -18,7 +18,6 @@ pipeline {
     }
     stage('AWS Deployment') {
       steps {
-          {
             sh 'rm -rf node-app-terraform'
             sh 'git clone https://github.com/goforgold/node-app-terraform.git'
             sh '''
@@ -26,7 +25,6 @@ pipeline {
                terraform init
                terraform apply
             '''
-        }
       }
     }
   environment {
