@@ -1,11 +1,11 @@
 pipeline {
   agent any
   stages {
-    stage('Create Packer AMI') {
-        steps {
-            sh 'packer build /packer-ex/build-node-app/packer/packer.json'
-        }
-      }
+   # stage('Create Packer AMI') {
+   #    steps {
+   #         sh 'packer build /packer-ex/build-node-app/packer/packer.json'
+    #    }
+    #  }
     stage('AWS Deployment') {
       steps {
             sh 'git clone https://github.com/mohsin996/node-app-terraform.git'
