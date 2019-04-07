@@ -1,24 +1,14 @@
 pipeline {
-  agent {
-    docker {
-      image 'goforgold/build-container:latest'
-    }
-  }
+  
   stages {
-    stage('Build') {
-      steps {
-        sh 'npm install'
-      }
-    }
     stage('Create Packer AMI') {
         steps {
-            sh 'packer build packer/packer.json'
+            sh 'packer build /packer-ex/build-node-app/packer/packer.json'
         }
       }
     stage('AWS Deployment') {
       steps {
-            sh 'rm -rf node-app-terraform'
-            sh 'git clone https://github.com/goforgold/node-app-terraform.git'
+            sh 'git clone https://github.com/mohsin996/node-app-terraform.git'
             sh '''
                cd node-app-terraform
                terraform init
