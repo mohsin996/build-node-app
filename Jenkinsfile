@@ -15,7 +15,6 @@ pipeline {
             sh 'packer build packer/packer.json'
         }
       }
-    }
     stage('AWS Deployment') {
       steps {
             sh 'rm -rf node-app-terraform'
@@ -30,4 +29,5 @@ pipeline {
   environment {
     npm_config_cache = 'npm-cache'
   }
+ }
 }
