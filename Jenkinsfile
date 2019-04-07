@@ -1,6 +1,11 @@
 pipeline {
   agent any
   stages {
+    stage('Create Packer AMI') {
+       steps {
+            sh 'packer build /packer-ex/build-node-app/packer/packer.json'
+        }
+      }
     stage('AWS Deployment') {
       steps {
             sh 'rm -rf node-app-terraform'
